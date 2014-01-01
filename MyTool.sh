@@ -1,3 +1,4 @@
+#!/bin/bash
 function to(){
     if [ ! -e ~/.toolset ]; then
         mkdir ~/.toolset
