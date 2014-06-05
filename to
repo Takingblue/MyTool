@@ -1,0 +1,15 @@
+_to() 
+{
+    local cur prev
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    local marks=""
+    for x in `awk -F: '{print $1}' ~/.toolset/bookmarks`
+    do  
+        marks=$marks" "$x 
+    done
+    COMPREPLY=( $(compgen -W "${marks}" -- ${cur}) )
+    return 0
+}
+complete -F _to to
